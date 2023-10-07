@@ -22,23 +22,31 @@ const DashboardContainer = styled.div`
 `;
 
 const Temperature= styled.div`
-  grid-column: 1 / 2; 
   display: flex;
   flex-direction: column;
-  gap: 20px;
 `;
 
 const Information = styled.div`
-  grid-column: 2 / 3; 
   display: flex;
   flex-direction: column;
-  gap: 20px;
+`;
+
+const Graphic = styled.div`
+    height: 15vh;
+    width: 32vw;
+`;
+
+const Subtitle = styled.div`
+    font-family: Georgia, 'Times New Roman', Times, serif;
 `;
 
 const DetailsContainer = styled.div`
 display: grid;
 grid-template-columns: repeat(3, 1fr);
 grid-gap: 5px;
+grid-row: 1 / 2;
+height:25vh;
+width:35vw;
 `;
 
 const data = {
@@ -333,14 +341,15 @@ const data = {
 function App() {
   return (
     <DashboardContainer>
-            <h1>Córdoba, Argentina</h1>
       <Temperature>
         <Temp />
       </Temperature>
       <Information>
-        <h2>Hoy</h2>
+        <Graphic>
+        <Subtitle>Hoy</Subtitle>
         <Hours />
-        <h2>Información destacada</h2>
+        </Graphic>
+        <Subtitle>Información destacada</Subtitle>
         <DetailsContainer>
           <UvIndex />
           <Wind />

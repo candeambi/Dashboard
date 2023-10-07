@@ -4,8 +4,12 @@ import Sunrise from "../icons/sunrise.svg";
 import Sunset from "../icons/sunset.svg";
 
 const Card = styled.div`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align:center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #09976c;
     border-radius: 5px;
     color: #000;
@@ -13,6 +17,10 @@ const Card = styled.div`
     padding: 5px;
 `;
 
+const Wrap = styled.div`
+    flex-wrap: wrap;
+`;
+ /*
 const TitleCard = styled.p`
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -21,41 +29,44 @@ const TitleCard = styled.p`
 `;
 
 const Value = styled.h3`
-    grid-row: 2 / 3; /* Fila 2 */
-    grid-column: 1 / 2; /* Columna 1 */
+    grid-row: 2 / 3; 
+    grid-column: 1 / 2; 
     text-align: center;
 `;
 
 const SecondValue = styled.h3`
-    grid-row: 3 / 4; /* Fila 3 */
-    grid-column: 1 / 2; /* Columna 1 */
+    grid-row: 3 / 4; 
+    grid-column: 1 / 2; 
     text-align: center;
 `;
 
 const Icon = styled.div`
-    grid-row: 2 / 3; /* Fila 2 */
-    grid-column: 2 / 3; /* Columna 2 */
+    grid-row: 2 / 3; 
+    grid-column: 2 / 3; 
     text-align: center; 
 `;
 
 const SecondIcon = styled.div`
-    grid-row: 3 / 4; /* Fila 3 */
-    grid-column: 2 / 3; /* Columna 2 */
+    grid-row: 3 / 4; 
+    grid-column: 2 / 3; 
     text-align: center;
 `;
+*/
 
 function SunriseSunset () {
     return (
         <Card>
-            <TitleCard>Amanecer y atardecer</TitleCard>
-            <Value>6:35 AM</Value>
-            <Icon>
-                <img src={Sunrise} alt='Amanecer' width={'60px'}/>  
-            </Icon>
-            <SecondValue>5:42 PM</SecondValue>
-            <SecondIcon>
+            <p>Amanecer y atardecer</p>
+            <Wrap>
+            <p>6:35 AM</p>
+            
+                <img src={Sunrise} alt='Amanecer' width={'50px'}/>  
+            </Wrap>
+            <Wrap>
+            <p>5:42 PM</p>
+            
                 <img src={Sunset} alt='Atardecer' width={'60px'} />  
-            </SecondIcon>
+            </Wrap>
         </Card>
     );
 }

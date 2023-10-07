@@ -34,6 +34,7 @@ function Temp (){
     return(
         <Container>
             <ActualTemp>
+                <h1>Córdoba, Argentina</h1>
                 <img src={PartlyCloudy} alt="Parcialmente Nublado" width={'100px'} />
                 <h2>20º</h2>
                 <p>Lunes, 17:00</p>
