@@ -6,7 +6,7 @@ import Sunset from "../icons/sunset.svg";
 const Card = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: rgb(245, 240, 169);
+    background-color: #09976c;
     border-radius: 5px;
     color: #000;
     margin: 5px;

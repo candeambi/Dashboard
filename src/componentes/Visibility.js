@@ -5,7 +5,7 @@ import VisibilityIcon from "../icons/mist.svg";
 const Card = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: rgb(245, 240, 169);
+    background-color: #09976c;
     border-radius: 5px;
     color: #000;
     margin: 5px;
@@ -27,12 +27,12 @@ const Value = styled.h3`
 
 const Description = styled.h4`
     grid-row: 3 / 4; /* Fila 3 */
-    grid-column: 1 / 2; /* Columna 1 */
+    grid-column: 1 / span 2; 
     text-align: center;
 `;
 
 const SecondIcon = styled.div`
-    grid-row: 3 / 4; /* Fila 3 */
+    grid-row: auto;
     grid-column: 2 / 3; /* Columna 2 */
     text-align: center;
 `;

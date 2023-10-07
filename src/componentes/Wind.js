@@ -6,7 +6,7 @@ import WindIcon from "../icons/wind.svg";
 const Card = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color:  rgb(245, 216, 154);
+    background-color:  rgb(247, 156, 38);
     border-radius: 5px;
     color: #000;
     margin: 5px;
