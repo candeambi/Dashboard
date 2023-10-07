@@ -1,5 +1,8 @@
-import React from 'react';
-/*import {Bar} from 'react-chartjs-2';
+/*import React from 'react';
+import {Bar} from 'react-chartjs-2';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+
+ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Hours(){
 
@@ -17,36 +20,22 @@ const data = {
     ]
 };
 
+
 const options = {
-    responsive : true,
-    animation:false,
-    plugins : {
-        legend : {
-            display : false
-        }
+    scales: {
+      x: {
+        type: 'category', // Indicar explícitamente que el tipo de escala es 'category'.
+        labels: horarios, // Esto debe coincidir con tus etiquetas de datos.
+      },
+      y: {
+        beginAtZero: true, // Esto asegura que el eje y comience desde cero.
+      },
     },
-    scales : {
-        y : {
-            type: 'linear',
-            min : -25,
-            max : 100
-        },
-        x: {
-            ticks: { color: 'rgba(0, 220, 195)'}
-        }
-    }
-};
+  };
 
     return (
         <Bar data={data} options={options} />
     );
 }
-*/
 
-function Hours(){
-    return(
-        <p>Horarios</p>
-    );
-    }
-
-export default Hours;
+export default Hours;*/

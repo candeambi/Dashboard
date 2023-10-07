@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
-import { WiStrongWind } from "weather-icons-react";
+import WindIcon from "../icons/wind.svg";
 
 
 const Card = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #fff;
+    background-color:  rgb(245, 216, 154);
     border-radius: 5px;
     color: #000;
     margin: 5px;
@@ -14,6 +14,8 @@ const Card = styled.div`
 `;
 
 const TitleCard = styled.p`
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     grid-column: 1 / span 2;
     text-align: center;
 `;
@@ -36,7 +38,7 @@ function Wind () {
             <TitleCard>Estado del viento</TitleCard>
             <Value>11.12 km/h</Value>
             <Icon>
-                <WiStrongWind size={45} color='#000' />  
+                <img src={WindIcon} alt='Viento' width={'70px'}/>   
             </Icon>
         </Card>
     );

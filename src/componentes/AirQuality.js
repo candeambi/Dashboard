@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from "styled-components";
-import { WiSmog } from "weather-icons-react";
+import Smoke from "../icons/smoke-particles.svg";
 
 
 const Card = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #fff;
+    background-color: rgb(245, 216, 154);
     border-radius: 5px;
     color: #000;
     margin: 5px;
@@ -14,6 +14,8 @@ const Card = styled.div`
 `;
 
 const TitleCard = styled.p`
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     grid-column: 1 / span 2;
     text-align: center;
 `;
@@ -43,7 +45,7 @@ function AirQuality() {
             <Value>105</Value>
             <Description>Insano</Description>
             <SecondIcon>
-                <WiSmog size={45} color='#000' />  
+                <img src={Smoke} alt='Humo' width={'70px'}/>   
             </SecondIcon>
         </Card>
     );

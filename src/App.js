@@ -1,13 +1,14 @@
 import './App.css';
 import Temp from './componentes/Temp.js';
-import Hours from './componentes/Hours';
+//import Hours from './componentes/Hours';
 import styled from 'styled-components';
-import UvIndex from './UvIndex';
+import UvIndex from './componentes/UvIndex';
 import Wind from './componentes/Wind';
 import SunriseSunset from './componentes/SunriseSunset';
 import Humidity from './componentes/Humidity';
 import Visibility from './componentes/Visibility';
-import AirQuality from './componentes/AirQuality';
+import AirQuality from './componentes/AirQuality'
+
 
 const DashboardContainer = styled.div`
   display: grid;
@@ -16,6 +17,7 @@ const DashboardContainer = styled.div`
   padding: 20px;
   background-color: #0b83b3;
   color: #fff;
+
 `;
 
 const Temperature= styled.div`
@@ -336,7 +338,7 @@ function App() {
       </Temperature>
       <Information>
         <h2>Hoy</h2>
-        <Hours />
+        {/* <Hours /> */}
         <h2>Información destacada</h2>
         <DetailsContainer>
           <UvIndex />

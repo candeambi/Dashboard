@@ -1,19 +1,21 @@
 import React from 'react';
 import styled from 'styled-components';
-import { WiDaySunny } from "weather-icons-react";
-import { WiMoonWaxingCrescent2 } from "weather-icons-react";
-import { WiDayCloudy } from "weather-icons-react";
+import Day from "../icons/clear-day.svg";
+import Night from "../icons/moon-first-quarter.svg";
+import PartlyCloudy from "../icons/partly-cloudy-day.svg";
 
 
 
 const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 `
 
 const ActualTemp = styled.div`
     grid-column: 1 / span 2;
     text-align: center;
+    font-size: larger;
 `;
 
 const Max = styled.div`
@@ -32,19 +34,19 @@ function Temp (){
     return(
         <Container>
             <ActualTemp>
-                <WiDayCloudy size={60} color='#fff' />
+                <img src={PartlyCloudy} alt="Parcialmente Nublado" width={'100px'} />
                 <h2>20º</h2>
                 <p>Lunes, 17:00</p>
             </ActualTemp>
             <Max>
                 <p>Max</p>
                 <h3>29º</h3>
-                <WiDaySunny size={30} color='#fff' />
+                <img src={Day} alt="Max" width={'80px'} />
             </Max>
             <Min>
                 <p>Min</p>
                 <h3>13º</h3>
-                <WiMoonWaxingCrescent2 size={30} color='#fff' />
+                <img src={Night} alt="Min" width={'80px'} />
             </Min>
         </Container>
     );

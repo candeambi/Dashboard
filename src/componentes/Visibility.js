@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import { WiSmallCraftAdvisory } from "weather-icons-react";
+import VisibilityIcon from "../icons/mist.svg";
 
 const Card = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #fff;
+    background-color: rgb(245, 240, 169);
     border-radius: 5px;
     color: #000;
     margin: 5px;
@@ -13,6 +13,8 @@ const Card = styled.div`
 `;
 
 const TitleCard = styled.p`
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     grid-column: 1 / span 2;
     text-align: center;
 `;
@@ -42,7 +44,7 @@ function Visibility() {
             <Value>6.1 km</Value>
             <Description>Promedio</Description>
             <SecondIcon>
-                <WiSmallCraftAdvisory size={45} color='#000' />  
+                <img src={VisibilityIcon} alt='Visibilidad' width={'70px'}/>   
             </SecondIcon>
         </Card>
     );

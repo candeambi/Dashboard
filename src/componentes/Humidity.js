@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from "styled-components";
-import { WiHumidity } from "weather-icons-react";
+import HumidityIcon from "../icons/humidity.svg";
 
 const Card = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-color: #fff;
+    background-color: rgb(245, 216, 154);
     border-radius: 5px;
     color: #000;
     margin: 5px;
@@ -13,6 +13,8 @@ const Card = styled.div`
 `;
 
 const TitleCard = styled.p`
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     grid-column: 1 / span 2;
     text-align: center;
 `;
@@ -41,7 +43,7 @@ function Humidity(){
             <TitleCard>Humedad</TitleCard >  
             <Value>12%</Value>
             <SecondIcon>
-                <WiHumidity size={45} color='#000' />  
+                <img src={HumidityIcon} alt='Humedad' width={'70px'}/>  
             </SecondIcon>
             <Description>Normal</Description>
         </Card>
