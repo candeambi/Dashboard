@@ -14,7 +14,7 @@ const Card = styled.div`
     color: #000;
     margin: 5px;
     padding: 5px;
-        height: 200px;
+        height: 180px;
 `;
 /*
 const TitleCard = styled.p`
@@ -47,9 +47,7 @@ function Visibility() {
     return (
         <Card>     
             <p>Visibilidad</p>
-            <h3>6.1 km</h3>
-            <h4>Promedio</h4>
-            
+            <p>6.1 km Promedio</p>
                 <img src={VisibilityIcon} alt='Visibilidad' width={'70px'}/>   
             
         </Card>

@@ -15,7 +15,7 @@ const Card = styled.div`
     color: #000;
     margin: 5px;
     padding: 5px;
-    height: 200px;
+    height: 180px;
 `;
 /*
 const TitleCard = styled.p`
@@ -48,8 +48,7 @@ function AirQuality() {
     return (
         <Card>
             <p>Calidad del aire</p>
-            <h3>105</h3>
-            <h4>Insano</h4>
+            <p>105 Insano</p>
             
                 <img src={Smoke} alt='Humo' width={'70px'}/>   
             

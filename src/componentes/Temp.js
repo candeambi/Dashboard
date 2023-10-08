@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Day from "../icons/clear-day.svg";
 import Night from "../icons/moon-first-quarter.svg";
 import PartlyCloudy from "../icons/partly-cloudy-day.svg";
+import Data from './Data.json';
 
 
 
@@ -31,6 +32,11 @@ const Min = styled.div`
 `;
 
 function Temp (){
+
+    const tempUnit = Data.daily_units.temperature_2m_max;
+    const max = Data.daily.temperature_2m_max;
+    const min = Data.daily.temperature_2m_min;
+
     return(
         <Container>
             <ActualTemp>
@@ -41,12 +47,12 @@ function Temp (){
             </ActualTemp>
             <Max>
                 <p>Max</p>
-                <h3>29º</h3>
+                <h3>{max} {tempUnit}</h3>
                 <img src={Day} alt="Max" width={'80px'} />
             </Max>
             <Min>
                 <p>Min</p>
-                <h3>13º</h3>
+                <h3>{min} {tempUnit}</h3>
                 <img src={Night} alt="Min" width={'80px'} />
             </Min>
         </Container>

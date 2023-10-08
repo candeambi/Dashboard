@@ -42,7 +42,7 @@ function Wind () {
     return (
         <Card>
             <p>Estado del viento</p>
-            <h3>11.12 km/h</h3>
+            <p>11.12 km/h</p>
             
                 <img src={WindIcon} alt='Viento' width={'70px'}/>   
             

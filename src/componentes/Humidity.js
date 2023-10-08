@@ -14,7 +14,7 @@ const Card = styled.div`
     color: #000;
     margin: 5px;
     padding: 5px;
-    height: 200px;
+    height: 180px;
 `;
 /*
 const TitleCard = styled.p`
@@ -46,8 +46,7 @@ function Humidity(){
     return (
         <Card>
             <p>Humedad</p >  
-            <h3>12%</h3>
-            <h4>Normal</h4>
+            <p>12%  Normal</p>
                 <img src={HumidityIcon} alt='Humedad' width={'70px'}/> 
         </Card>
     );

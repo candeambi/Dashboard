@@ -61,6 +61,7 @@ function SunriseSunset () {
             <p>Amanecer y atardecer</p>
             <p>6:35 AM</p>
             <p>5:42 PM</p>
+            
             <Wrap>
                 <img src={Sunset} alt='Atardecer' width={'30px'} />  
                 <img src={Sunrise} alt='Amanecer' width={'30px'}/> 
