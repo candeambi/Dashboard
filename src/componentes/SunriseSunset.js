@@ -22,45 +22,17 @@ const Card = styled.div`
 const Wrap = styled.div`
     flex-wrap: wrap;
 `;
- /*
-const TitleCard = styled.p`
-    font-size: large;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    grid-column: 1 / span 2;
-    text-align: center;
-`;
 
-const Value = styled.h3`
-    grid-row: 2 / 3; 
-    grid-column: 1 / 2; 
-    text-align: center;
+const Info = styled.div`
+font-weight: bold;
 `;
-
-const SecondValue = styled.h3`
-    grid-row: 3 / 4; 
-    grid-column: 1 / 2; 
-    text-align: center;
-`;
-
-const Icon = styled.div`
-    grid-row: 2 / 3; 
-    grid-column: 2 / 3; 
-    text-align: center; 
-`;
-
-const SecondIcon = styled.div`
-    grid-row: 3 / 4; 
-    grid-column: 2 / 3; 
-    text-align: center;
-`;
-*/
 
 function SunriseSunset () {
     return (
         <Card>
             <p>Amanecer y atardecer</p>
-            <p>6:35 AM</p>
-            <p>5:42 PM</p>
+            <Info>6:35 AM</Info>
+            <Info>5:42 PM</Info>
             
             <Wrap>
                 <img src={Sunset} alt='Atardecer' width={'30px'} />  

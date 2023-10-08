@@ -16,38 +16,17 @@ const Card = styled.div`
     padding: 5px;
         height: 180px;
 `;
-/*
-const TitleCard = styled.p`
-    font-size: large;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    grid-column: 1 / span 2;
-    text-align: center;
-`;
 
-const Value = styled.h3`
-    grid-row: 2 / 3; 
-    grid-column: 1 / 2; 
-    text-align: center;
+const Info = styled.div`
+font-weight: bold;
+text-align: center;
 `;
-
-const Description = styled.h4`
-    grid-row: 3 / 4; 
-    grid-column: 1 / span 2; 
-    text-align: center;
-`;
-
-const SecondIcon = styled.div`
-    grid-row: auto;
-    grid-column: 2 / 3; 
-    text-align: center;
-`;
-*/
 
 function Visibility() {
     return (
         <Card>     
             <p>Visibilidad</p>
-            <p>6.1 km Promedio</p>
+            <Info>6.1 km Promedio</Info>
                 <img src={VisibilityIcon} alt='Visibilidad' width={'70px'}/>   
             
         </Card>

@@ -17,38 +17,16 @@ const Card = styled.div`
     padding: 5px;
     height: 180px;
 `;
-/*
-const TitleCard = styled.p`
-    font-size: large;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    grid-column: 1 / span 2;
-    text-align: center;
-`;
 
-const Value = styled.h3`
-    grid-row: 2 / 3; 
-    grid-column: 1 / 2; 
-    text-align: center;
+const Info = styled.div`
+font-weight: bold;
 `;
-
-const Description = styled.h4`
-    grid-row: 3 / 4; 
-    grid-column: 1 / span 2; 
-    text-align: center;
-`;
-
-const SecondIcon = styled.div`
-    grid-row: auto;
-    grid-column: 2 / 3; 
-    text-align: center;
-`;
-*/
 
 function AirQuality() {
     return (
         <Card>
             <p>Calidad del aire</p>
-            <p>105 Insano</p>
+            <Info>105 Insano</Info>
             
                 <img src={Smoke} alt='Humo' width={'70px'}/>   
             

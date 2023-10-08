@@ -16,32 +16,17 @@ const Card = styled.div`
     padding:5px;
     height: 200px;
 `;
-/*
-const TitleCard = styled.p`
-    font-size: large;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    grid-column: 1 / span 2;
-    text-align: center;
-`;
 
-const Value = styled.h3`
-    grid-row: 2 / 3; 
-    grid-column: 1 / 2; 
-    text-align: center;
+const Info = styled.div`
+font-weight: bold;
+text-align: center;
 `;
-
-const Icon = styled.div`
-    grid-row: 2 / 3; 
-    grid-column: 2 / 3; 
-    text-align: center; 
-`;
-*/
 
 function UvIndex (){
     return (
         <Card>
                 <p>Indice UV</p>
-                <p>6</p>
+                <Info>6</Info>
                 
                     <img src={UvIcon} alt='RayosUV' width={'70px'}/>  
                 
