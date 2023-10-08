@@ -19,34 +19,37 @@ const DashboardContainer = styled.div`
   color: #fff;
   width: 50vw;
   height: 100vh;
+  overflow: hidden; /* Oculta el desbordamiento*/
 `;
 
 const Temperature= styled.div`
   display: flex;
   flex-direction: column;
+  overflow: hidden; /* Oculta el desbordamiento*/
+  max-height: 100%; /* Limita la altura al 100% del contenedor */
 `;
 
 const Information = styled.div`
   display: flex;
   flex-direction: column;
+  max-height: 100%; /* Limita la altura al 100% del contenedor */
 `;
-
+/*
 const Graphic = styled.div`
     height: 15vh;
     width: 32vw;
 `;
-
+*/
 const Subtitle = styled.div`
     font-family: Georgia, 'Times New Roman', Times, serif;
 `;
 
 const DetailsContainer = styled.div`
-display: grid;
-grid-template-columns: repeat(3, 1fr);
-grid-gap: 5px;
-grid-row: 1 / 2;
-height:25vh;
-width:35vw;
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se ajusten automáticamente al espacio disponible */
+  align-content: flex-start;
+  justify-content: space-between; /* Distribuye las tarjetas uniformemente */
+  max-height: 100%; /* Limita la altura al 100% del contenedor */
 `;
 
 const data = {
@@ -345,10 +348,10 @@ function App() {
         <Temp />
       </Temperature>
       <Information>
-        <Graphic>
+        
         <Subtitle>Hoy</Subtitle>
         <Hours />
-        </Graphic>
+      
         <Subtitle>Información destacada</Subtitle>
         <DetailsContainer>
           <UvIndex />

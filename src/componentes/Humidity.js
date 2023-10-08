@@ -4,6 +4,7 @@ import HumidityIcon from "../icons/humidity.svg";
 
 const Card = styled.div`
         display: flex;
+        flex: 0 0 calc(28% - 0px); /* Establece el ancho de cada tarjeta en un tercio del contenedor, considerando el espacio entre las tarjetas */
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -13,6 +14,7 @@ const Card = styled.div`
     color: #000;
     margin: 5px;
     padding: 5px;
+    height: 200px;
 `;
 /*
 const TitleCard = styled.p`

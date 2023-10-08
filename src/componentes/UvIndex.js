@@ -4,6 +4,7 @@ import UvIcon from "../icons/uv-index.svg";
 
 const Card = styled.div`
     display: flex;
+    flex: 0 0 calc(28% - 0px); /* Establece el ancho de cada tarjeta en un tercio del contenedor, considerando el espacio entre las tarjetas */
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -12,7 +13,8 @@ const Card = styled.div`
     border-radius: 5px;
     color: #000;
     margin: 5px;
-    padding: 5px;
+    padding:5px;
+    height: 200px;
 `;
 /*
 const TitleCard = styled.p`
@@ -39,7 +41,7 @@ function UvIndex (){
     return (
         <Card>
                 <p>Indice UV</p>
-                <h3>6</h3>
+                <p>6</p>
                 
                     <img src={UvIcon} alt='RayosUV' width={'70px'}/>  
                 
