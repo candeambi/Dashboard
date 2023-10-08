@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import WindIcon from "../icons/wind.svg";
+import Data from "./Data.json";
 
-
+/* Estilos*/
 const Card = styled.div`
    display: flex;
    flex: 0 0 calc(28% - 0px); /* Establece el ancho de cada tarjeta en un tercio del contenedor, considerando el espacio entre las tarjetas */
@@ -23,10 +24,15 @@ font-weight: bold;
 `;
 
 function Wind () {
+
+    /* Declaro constantes del json*/
+    const wind = Data.daily.windspeed_10m_max;
+    const windUnit = Data.daily_units.windspeed_10m_max;
+
     return (
         <Card>
             <p>Estado del viento</p>
-            <Info>11.12 km/h</Info>
+            <Info>{wind} {windUnit}</Info>
             
                 <img src={WindIcon} alt='Viento' width={'70px'}/>   
             

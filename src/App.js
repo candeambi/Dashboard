@@ -7,9 +7,10 @@ import Wind from './componentes/Wind';
 import SunriseSunset from './componentes/SunriseSunset';
 import Humidity from './componentes/Humidity';
 import Visibility from './componentes/Visibility';
-import AirQuality from './componentes/AirQuality'
+import AirQuality from './componentes/AirQuality';
+import Data from './componentes/Data.json';
 
-
+/* Estilos*/
 const DashboardContainer = styled.div`
   display: grid;
   grid-template-columns: 30% 70%; /* Columna 1: 30%, Columna 2: 70% */
@@ -37,10 +38,9 @@ const Information = styled.div`
 `;
 
 const Graphic = styled.div`
-    height: 50%;
-    width: 100%;
+    height: 100%;
+    width: 200%;
     display: flex;
-    justify-content: center;
 `;
 
 const DetailsContainer = styled.div`
@@ -53,6 +53,7 @@ const DetailsContainer = styled.div`
 
 
 function App() {
+
   return (
     <DashboardContainer>
       <Temperature>

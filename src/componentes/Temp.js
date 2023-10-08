@@ -5,8 +5,7 @@ import Night from "../icons/moon-first-quarter.svg";
 import PartlyCloudy from "../icons/partly-cloudy-day.svg";
 import Data from './Data.json';
 
-
-
+/* Estilos*/
 const Container = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -33,6 +32,7 @@ const Min = styled.div`
 
 function Temp (){
 
+    /* Declaro constantes del json*/
     const tempUnit = Data.daily_units.temperature_2m_max;
     const max = Data.daily.temperature_2m_max;
     const min = Data.daily.temperature_2m_min;

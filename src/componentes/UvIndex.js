@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from "styled-components";
 import UvIcon from "../icons/uv-index.svg";
+import Data from './Data.json';
 
+/* Estilos*/
 const Card = styled.div`
     display: flex;
     flex: 0 0 calc(28% - 0px); /* Establece el ancho de cada tarjeta en un tercio del contenedor, considerando el espacio entre las tarjetas */
@@ -23,10 +25,14 @@ text-align: center;
 `;
 
 function UvIndex (){
+
+    /* Declaro constantes del json*/
+    const uv = Data.daily.uv_index_max;
+
     return (
         <Card>
                 <p>Indice UV</p>
-                <Info>6</Info>
+                <Info>{uv}</Info>
                 
                     <img src={UvIcon} alt='RayosUV' width={'70px'}/>  
                 

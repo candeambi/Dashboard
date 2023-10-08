@@ -2,7 +2,9 @@ import React from 'react';
 import styled from "styled-components";
 import Sunrise from "../icons/sunrise.svg";
 import Sunset from "../icons/sunset.svg";
+import Data from './Data.json';
 
+/*Estilos*/
 const Card = styled.div`
     display: flex;
     flex: 0 0 calc(28% - 0px); /* Establece el ancho de cada tarjeta en un tercio del contenedor, considerando el espacio entre las tarjetas */
@@ -28,11 +30,16 @@ font-weight: bold;
 `;
 
 function SunriseSunset () {
+
+    /*Datos del JSON*/
+    const sunriseHour = String(Data.daily.sunrise).slice(-5);
+    const sunsetHour = String(Data.daily.sunset).slice(-5);
+
     return (
         <Card>
             <p>Amanecer y atardecer</p>
-            <Info>6:35 AM</Info>
-            <Info>5:42 PM</Info>
+            <Info>{sunriseHour}</Info>
+            <Info>{sunsetHour}</Info>
             
             <Wrap>
                 <img src={Sunset} alt='Atardecer' width={'30px'} />  
