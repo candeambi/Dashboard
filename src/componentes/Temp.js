@@ -2,7 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 import Day from "../icons/clear-day.svg";
 import Night from "../icons/moon-first-quarter.svg";
+import Cloudy from "../icons/cloudy.svg";
+import Fog from "../icons/fog.svg";
+import Drizzle from "../icons/drizzle.svg";
+import Rain from "../icons/rain.svg";
 import PartlyCloudy from "../icons/partly-cloudy-day.svg";
+import Sleet from "../icons/sleet.svg";
+import Snow from "../icons/snow.svg";
+import ThunderstormRain from "../icons/thunderstorms-rain.svg";
+import ThunderstormSnow from "../icons/thunderstorms-snow.svg";
+import ElectricThunderstorm from "../icons/thunderstorms.svg";
 import Data from './Data.json';
 
 /* Estilos*/
@@ -36,14 +45,225 @@ function Temp (){
     const tempUnit = Data.daily_units.temperature_2m_max;
     const max = Data.daily.temperature_2m_max;
     const min = Data.daily.temperature_2m_min;
+    const weathercode = Data.current_weather.weathercode;
+    const actualHour = String(Data.current_weather.time).slice(-5)
+    const day = String(Data.current_weather.time).slice(8, 10);
+    const month = String(Data.current_weather.time).slice(5, 7);
+    const year = String(Data.current_weather.time).slice(0, 4);
+    const actualDate = `${day}-${month}-${year}`;
+
+    const tempCode = () => {
+        if (weathercode === 0){
+            return (
+                <>
+                    <p>Despejado</p>
+                    <img src={Day} alt="Icono de sol" />
+                </>
+            );
+        } else if (weathercode === 1){
+            return (
+                <>
+                    <p>Mayormente despejado</p>
+                    <img src={Day} alt="Icono de sol" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 2){
+            return (
+                <>
+                    <p>Parcialmente nublado</p>
+                    <img src={PartlyCloudy} alt="Icono de sol parcialmente nublado" width={'150px'}/>
+                </>
+            );
+        } else if (weathercode === 3){
+            return (
+                <>
+                    <p>Nublado</p>
+                    <img src={Cloudy} alt="Icono de nube" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 45){
+             return (
+                <>
+                    <p>Niebla</p>
+                    <img src={Fog} alt="Icono de niebla" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 46){
+             return (
+                <>
+                    <p>Niebla con escarcha</p>
+                    <img src={Fog} alt="Icono de niebla" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 51){
+            return (
+                <>
+                    <p>Llovizna ligera</p>
+                    <img src={Drizzle} alt="Icono de llovizna" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 53){
+            return (
+                <>
+                    <p>Llovizna moderada</p>
+                    <img src={Drizzle} alt="Icono de llovizna" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 55){
+            return (
+                <>
+                    <p>Llovizna intensa</p>
+                    <img src={Drizzle} alt="Icono de llovizna" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 56){
+            return (
+                <>
+                    <p>Escarcha ligera</p>
+                    <img src={Sleet} alt="Icono de escarcha" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 57){
+            return (
+                <>
+                    <p>Escarcha densa</p>
+                    <img src={Sleet} alt="Icono de escarcha" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 61){
+            return (
+                <>
+                    <p>Lluvia ligera</p>
+                    <img src={Rain} alt="Icono de lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 63){
+            return (
+                <>
+                    <p>Lluvia moderada</p>
+                    <img src={Rain} alt="Icono de lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 65){
+            return (
+                <>
+                    <p>Lluvia intensa</p>
+                    <img src={Rain} alt="Icono de lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 66){
+            return (
+                <>
+                    <p>Lluvia fria, ligera</p>
+                    <img src={Rain} alt="Icono de lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 67){
+            return (
+                <>
+                    <p>Lluvia fria, intensa</p>
+                    <img src={Rain} alt="Icono de lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 71){
+            return (
+                <>
+                    <p>Nevada ligera</p>
+                    <img src={Snow} alt="Icono de nieve" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 73){
+            return (
+                <>
+                    <p>Nevada moderada</p>
+                    <img src={Snow} alt="Icono de nieve" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 75){
+            return (
+                <>
+                    <p>Nevada intensa</p>
+                    <img src={Snow} alt="Icono de nieve" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 77){
+            return (
+                <>
+                    <p>Aguanieve</p>
+                    <img src={Snow} alt="Icono de nieve" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 80){
+            return (
+                <>
+                    <p>Tormenta ligera</p>
+                    <img src={ThunderstormRain} alt="Icono de tormenta con lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 81){
+            return (
+                <>
+                    <p>Tormenta moderada</p>
+                    <img src={ThunderstormRain} alt="Icono de tormenta con lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 82){
+            return (
+                <>
+                    <p>Tormenta fuerte</p>
+                    <img src={ThunderstormRain} alt="Icono de tormenta con lluvia" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 85){
+            return (
+                <>
+                    <p>Tormenta de nieve, moderada</p>
+                    <img src={ThunderstormSnow} alt="Icono de tormenta con nieve" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 86){
+            return (
+                <>
+                    <p>Tormenta de nieve, fuerte</p>
+                    <img src={ThunderstormSnow} alt="Icono de tormenta con nieve" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 95){
+            return (
+                <>
+                    <p>Tormenta electrica</p>
+                    <img src={ElectricThunderstorm} alt="Icono de tormenta electrica" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 96){
+            return (
+                <>
+                    <p>Tormenta electrica con granizo ligero</p>
+                    <img src={ThunderstormSnow} alt="Icono de tormenta con granizo" width={'150px'} />
+                </>
+            );
+        } else if (weathercode === 99){
+            return (
+                <>
+                    <p>Tormenta electrica con granizo pesado</p>
+                    <img src={ThunderstormSnow} alt="Icono de tormenta con granizo" width={'150px'} />
+                </>
+            );
+        } else {
+            return (
+                <><p>No hay información momentaneamente.</p></>
+            )
+        }
+    }
+
+    const weatherInfo = tempCode(); // Llama a la función para obtener la información del clima
 
     return(
         <Container>
             <ActualTemp>
                 <h1>Córdoba, Argentina</h1>
-                <img src={PartlyCloudy} alt="Parcialmente Nublado" width={'100px'} />
-                <h2>20º</h2>
-                <p>Lunes, 17:00</p>
+                {weatherInfo} {/* Renderiza el resultado de la función tempCode */}
+                <p>{actualDate}, {actualHour}</p>
             </ActualTemp>
             <Max>
                 <p>Max</p>

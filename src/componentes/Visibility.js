@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import VisibilityIcon from "../icons/mist.svg";
+import Data from './Data.json';
 
 const Card = styled.div`
     display: flex;
@@ -23,10 +24,15 @@ text-align: center;
 `;
 
 function Visibility() {
+    /*Datos del JSON*/
+    const actualHour = String(Data.current_weather.time).slice(11, 13);
+    const visibilityValue = Data.hourly.visibility[actualHour];
+    const visibilityUnit = Data.hourly_units.visibility;
+
     return (
         <Card>     
             <p>Visibilidad</p>
-            <Info>6.1 km Promedio</Info>
+            <Info>{visibilityValue} {visibilityUnit} Promedio</Info>
                 <img src={VisibilityIcon} alt='Visibilidad' width={'70px'}/>   
             
         </Card>

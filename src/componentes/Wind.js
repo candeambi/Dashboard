@@ -26,13 +26,13 @@ font-weight: bold;
 function Wind () {
 
     /* Declaro constantes del json*/
-    const wind = Data.daily.windspeed_10m_max;
-    const windUnit = Data.daily_units.windspeed_10m_max;
+    const windSpeedValue = Data.daily.windspeed_10m_max;
+    const windSpeedUnit = Data.daily_units.windspeed_10m_max;
 
     return (
         <Card>
             <p>Estado del viento</p>
-            <Info>{wind} {windUnit}</Info>
+            <Info>{windSpeedValue} {windSpeedUnit}</Info>
             
                 <img src={WindIcon} alt='Viento' width={'70px'}/>   
             

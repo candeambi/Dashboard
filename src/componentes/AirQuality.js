@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import Smoke from "../icons/smoke-particles.svg";
+import Data from './Data.json';
 
 
 const Card = styled.div`
@@ -23,10 +24,15 @@ font-weight: bold;
 `;
 
 function AirQuality() {
+
+    /*Datos del JSON*/
+    const actualHour = String(Data.current_weather.time).slice(11, 13);
+    const airQualityValue = Data.hourly.european_aqi[actualHour];
+
     return (
         <Card>
             <p>Calidad del aire</p>
-            <Info>105 Insano</Info>
+            <Info>{airQualityValue} Insano</Info>
             
                 <img src={Smoke} alt='Humo' width={'70px'}/>   
             

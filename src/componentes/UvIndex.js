@@ -27,12 +27,12 @@ text-align: center;
 function UvIndex (){
 
     /* Declaro constantes del json*/
-    const uv = Data.daily.uv_index_max;
+    const uvIndexValue = Data.daily.uv_index_max;
 
     return (
         <Card>
                 <p>Indice UV</p>
-                <Info>{uv}</Info>
+                <Info>{uvIndexValue}</Info>
                 
                     <img src={UvIcon} alt='RayosUV' width={'70px'}/>  
                 
