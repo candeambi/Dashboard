@@ -30,10 +30,28 @@ function Humidity(){
     const humidityValue = Data.hourly.relativehumidity_2m[actualHour];
     const humidityUnit = Data.hourly_units.relativehumidity_2m;
 
+    const humidityDescription = () => {
+        if (humidityValue < 40) {
+            return "Muy baja";
+        } else if (humidityValue >= 40 && humidityValue < 60) {
+            return "Baja";
+        } else if (humidityValue >= 60 && humidityValue < 70) {
+            return "Moderada";
+        } else if (humidityValue >= 70 && humidityValue < 80) {
+            return "Alta";
+        } else if (humidityValue >= 80 && humidityValue < 90) {
+            return "Muy alta";
+        } else {
+            return "Extremadamente alta";
+        }
+    }
+    
+    const humidityDescriptionText = humidityDescription();
+
     return (
         <Card>
             <p>Humedad</p >  
-            <Info>{humidityValue} {humidityUnit}  Normal</Info>
+            <Info>{humidityValue} {humidityUnit}  {humidityDescriptionText}</Info>
                 <img src={HumidityIcon} alt='Humedad' width={'70px'}/> 
         </Card>
     );

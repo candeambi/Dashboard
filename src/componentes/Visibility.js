@@ -29,10 +29,28 @@ function Visibility() {
     const visibilityValue = Data.hourly.visibility[actualHour];
     const visibilityUnit = Data.hourly_units.visibility;
 
+    const visibilityDescription = () => {
+        if (visibilityValue > 10000) {
+            return "Excelente";
+        } else if (visibilityValue >= 5000) {
+            return "Buena";
+        } else if (visibilityValue >= 3000) {
+            return "Moderada";
+        } else if (visibilityValue >= 1000) {
+            return "Mala";
+        } else if (visibilityValue >= 500) {
+            return "Muy mala";
+        } else {
+            return "Peligrosa";
+        }
+    }
+    
+    const visibilityDescriptionText = visibilityDescription();
+
     return (
         <Card>     
             <p>Visibilidad</p>
-            <Info>{visibilityValue} {visibilityUnit} Promedio</Info>
+            <Info>{visibilityValue} {visibilityUnit} {visibilityDescriptionText}</Info>
                 <img src={VisibilityIcon} alt='Visibilidad' width={'70px'}/>   
             
         </Card>

@@ -29,10 +29,28 @@ function AirQuality() {
     const actualHour = String(Data.current_weather.time).slice(11, 13);
     const airQualityValue = Data.hourly.european_aqi[actualHour];
 
+    const description = () => {
+        if (airQualityValue >= 0 && airQualityValue <= 50) {
+            return "Bueno";
+        } else if (airQualityValue <= 100) {
+            return "Moderado";
+        } else if (airQualityValue <= 150) {
+            return "Deficiente para grupos sensibles";
+        } else if (airQualityValue <= 200) {
+            return "Deficiente";
+        } else if (airQualityValue <= 300) {
+            return "Muy deficiente";
+        } else {
+            return "Peligroso";
+        }
+    }
+
+    const airQualityDescription = description();
+
     return (
         <Card>
             <p>Calidad del aire</p>
-            <Info>{airQualityValue} Insano</Info>
+            <Info>{airQualityValue}  {airQualityDescription}</Info>
             
                 <img src={Smoke} alt='Humo' width={'70px'}/>   
             
