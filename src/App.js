@@ -1,79 +1,31 @@
 import './App.css';
-import Temp from './componentes/Temp.js';
-import Hours from './componentes/Hours';
-import styled from 'styled-components';
-import UvIndex from './componentes/UvIndex';
-import Wind from './componentes/Wind';
-import SunriseSunset from './componentes/SunriseSunset';
-import Humidity from './componentes/Humidity';
-import Visibility from './componentes/Visibility';
-import AirQuality from './componentes/AirQuality';
-import Data from './componentes/Data.json';
-
-/* Estilos*/
-const DashboardContainer = styled.div`
-  display: grid;
-  grid-template-columns: 30% 70%; /* Columna 1: 30%, Columna 2: 70% */
-  gap: 20px;
-  padding: 20px;
-  background-color: #0b83b3;
-  color: #fff;
-  width: 50vw;
-  height: 100vh;
-  overflow: hidden; /* Oculta el desbordamiento*/
-`;
-
-const Temperature= styled.div`
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; /* Oculta el desbordamiento*/
-  max-height: 100%; /* Limita la altura al 100% del contenedor */
-`;
-
-const Information = styled.div`
-  display: flex;
-  flex-direction: column;
-  max-height: 100%; /* Limita la altura al 100% del contenedor */
-  justify-content: space-between;
-`;
-
-const Graphic = styled.div`
-    height: 100%;
-    width: 200%;
-    display: flex;
-`;
-
-const DetailsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap; /* Permite que las tarjetas se ajusten automáticamente al espacio disponible */
-  align-content: flex-start;
-  justify-content: space-between; /* Distribuye las tarjetas uniformemente */
-  max-height: 70%; /* Limita la altura al 100% del contenedor */
-`;
-
+import React, {useState, useEffect} from 'react';
+import DashboardWeather from './componentes/DashboardWeather';
 
 function App() {
 
+  /*Extraigo los datos de la api*/
+const [weatherData, setWeatherData] = useState(null);
+const [loading, setLoading] = useState(true);
+
+useEffect (() => {
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=-31.4135&longitude=-64.181&hourly=temperature_2m,relativehumidity_2m,weathercode,visibility,temperature_80m,temperature_120m,temperature_180m&daily=weathercode,temperature_2m_max,temperature_2m_min,sunrise,sunset,uv_index_max,windspeed_10m_max&current_weather=true&timezone=America%2FSao_Paulo')
+  .then (resp => resp.json()
+  ).then(data => {
+    setWeatherData(data);
+    setLoading(false);
+  }).catch(ex => {
+    console.error(ex);
+  })
+}, [])
+
+
   return (
-    <DashboardContainer>
-      <Temperature>
-        <Temp />
-      </Temperature>
-      <Information>
-        <Graphic>
-        <Hours />
-        </Graphic>
-        <DetailsContainer>
-          <UvIndex />
-          <Wind />
-          <SunriseSunset />
-          <Humidity />
-          <Visibility />
-          <AirQuality />
-        </DetailsContainer>
-        
-      </Information>
-    </DashboardContainer>
+    <div>
+       <div>{loading && <h1>Cargando...</h1>}</div>
+      <div>{!loading && weatherData && <DashboardWeather weatherData={weatherData} />}</div>
+    </div>
+
   );
 }
 
