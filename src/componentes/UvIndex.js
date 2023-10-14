@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import UvIcon from "../icons/uv-index.svg";
-import Data from './Data.json';
 
 /* Estilos*/
 const Card = styled.div`
