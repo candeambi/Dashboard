@@ -52,7 +52,7 @@ const DetailsContainer = styled.div`
 
 
 
-function DashboardWeather({weatherData}) {
+function DashboardWeather({weatherData, airQualityData}) {
 
   console.log('Datos en DashboardWeather:', weatherData);
 
@@ -71,7 +71,7 @@ function DashboardWeather({weatherData}) {
           <SunriseSunset weatherData={weatherData} />
           <Humidity weatherData={weatherData} />
           <Visibility weatherData={weatherData} />
-          <AirQuality weatherData={weatherData} />
+          <AirQuality airQualityData={airQualityData} />
         </DetailsContainer>
         
       </Information>
