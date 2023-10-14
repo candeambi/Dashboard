@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from "styled-components";
 import Smoke from "../icons/smoke-particles.svg";
-import Data from './Data.json';
 
-
+/*Estilos*/
 const Card = styled.div`
     display: flex;
     flex: 0 0 calc(28% - 0px); /* Establece el ancho de cada tarjeta en un tercio del contenedor, considerando el espacio entre las tarjetas */
@@ -23,11 +22,15 @@ const Info = styled.div`
 font-weight: bold;
 `;
 
-function AirQuality() {
+function AirQuality({weatherData, airQualityData}) {
 
-    /*Datos del JSON*/
-    const actualHour = String(Data.current_weather.time).slice(11, 13);
-    const airQualityValue = Data.hourly.european_aqi[actualHour];
+    /*Informacion de la api de la calidad del aire*/
+    let airQualityValue = null; // Inicializa airQualityValue
+
+    if (airQualityData && airQualityData.hourly && airQualityData.hourly.european_aqi) {
+        const actualHour = String(weatherData.current_weather.time).slice(11, 13);
+        airQualityValue = airQualityData.hourly.european_aqi[actualHour];
+    }
 
     const description = () => {
         if (airQualityValue >= 0 && airQualityValue <= 50) {

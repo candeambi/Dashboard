@@ -25,7 +25,7 @@ useEffect (() => {
   //const [airQualityLoading, setAirQualityLoading] = useState(true);
 
   useEffect (() => {
-    fetch('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=-31.4135&longitude=-64.181&hourly=european_aqi')
+    fetch('https://air-quality-api.open-meteo.com/v1/air-quality?latitude=52.52&longitude=13.41&hourly=european_aqi&timezone=America%2FSao_Paulo')
     .then (resp => resp.json()
   ).then(data => {
     setAirQualityData(data);

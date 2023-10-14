@@ -71,7 +71,7 @@ function DashboardWeather({weatherData, airQualityData}) {
           <SunriseSunset weatherData={weatherData} />
           <Humidity weatherData={weatherData} />
           <Visibility weatherData={weatherData} />
-          <AirQuality airQualityData={airQualityData} />
+          <AirQuality airQualityData={airQualityData} weatherData={weatherData} />
         </DetailsContainer>
         
       </Information>
