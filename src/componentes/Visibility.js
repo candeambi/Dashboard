@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import VisibilityIcon from "../icons/mist.svg";
-import Data from './Data.json';
 
 const Card = styled.div`
     display: flex;
@@ -23,11 +22,12 @@ font-weight: bold;
 text-align: center;
 `;
 
-function Visibility() {
-    /*Datos del JSON*/
-    const actualHour = String(Data.current_weather.time).slice(11, 13);
-    const visibilityValue = Data.hourly.visibility[actualHour];
-    const visibilityUnit = Data.hourly_units.visibility;
+function Visibility({weatherData}) {
+
+    /*Datos de la api */
+    const actualHour = String(weatherData.current_weather.time).slice(11, 13);
+    const visibilityValue = weatherData.hourly.visibility[actualHour];
+    const visibilityUnit = weatherData.hourly_units.visibility;
 
     const visibilityDescription = () => {
         if (visibilityValue > 10000) {
