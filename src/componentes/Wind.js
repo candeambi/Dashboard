@@ -24,7 +24,7 @@ font-weight: bold;
 
 function Wind ({weatherData}) {
 
-    /* Declaro constantes del json*/
+    /* Datos de la api */
     const getWindSpeedValue = weatherData.daily.windspeed_10m_max;
     const windSpeedValue = Math.max(...getWindSpeedValue);
     const windSpeedUnit = weatherData.daily_units.windspeed_10m_max;

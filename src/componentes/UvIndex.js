@@ -25,7 +25,7 @@ text-align: center;
 
 function UvIndex ({weatherData}){
 
-    /* Declaro constantes del json*/
+    /* Datos de la api */
     const getUvIndexValue = weatherData.daily.uv_index_max;
     const uvIndexValue = Math.max(...getUvIndexValue);
 

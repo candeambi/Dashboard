@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import HumidityIcon from "../icons/humidity.svg";
-import Data from './Data.json';
 
 const Card = styled.div`
         display: flex;
@@ -23,12 +22,12 @@ font-weight: bold;
 text-align: center;
 `;
 
-function Humidity(){
+function Humidity({weatherData}){
 
-    /*Datos del JSON*/
-    const actualHour = String(Data.current_weather.time).slice(11, 13);
-    const humidityValue = Data.hourly.relativehumidity_2m[actualHour];
-    const humidityUnit = Data.hourly_units.relativehumidity_2m;
+    /*Datos de la api*/
+    const actualHour = String(weatherData.current_weather.time).slice(11, 13);
+    const humidityValue = weatherData.hourly.relativehumidity_2m[actualHour];
+    const humidityUnit = weatherData.hourly_units.relativehumidity_2m;
 
     const humidityDescription = () => {
         if (humidityValue < 40) {

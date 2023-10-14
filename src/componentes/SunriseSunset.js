@@ -2,7 +2,6 @@ import React from 'react';
 import styled from "styled-components";
 import Sunrise from "../icons/sunrise.svg";
 import Sunset from "../icons/sunset.svg";
-import Data from './Data.json';
 
 /*Estilos*/
 const Card = styled.div`
@@ -31,7 +30,7 @@ font-weight: bold;
 
 function SunriseSunset ({weatherData}) {
 
-    /*Datos del JSON*/
+    /*Datos de la api*/
     const getSunriseHour = weatherData.daily.sunrise[0];
     const sunriseHour = String(getSunriseHour).slice(-5);
     const getSunsetHour = weatherData.daily.sunset[0];
