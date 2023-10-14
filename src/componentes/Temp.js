@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 import Day from "../icons/clear-day.svg";
-//import ClearNight from '../icons/clear-night.svg';
+import ClearNight from '../icons/clear-night.svg';
 import Night from "../icons/moon-first-quarter.svg";
 import Cloudy from "../icons/cloudy.svg";
 import Fog from "../icons/fog.svg";
 import Drizzle from "../icons/drizzle.svg";
 import Rain from "../icons/rain.svg";
 import PartlyCloudy from "../icons/partly-cloudy-day.svg";
+import PartlyCloudyNight from '../icons/partly-cloudy-night.svg';
 import Sleet from "../icons/sleet.svg";
 import Snow from "../icons/snow.svg";
 import ThunderstormRain from "../icons/thunderstorms-rain.svg";
@@ -58,29 +59,60 @@ function Temp ({weatherData}){
     const year = String(weatherData.current_weather.time).slice(0, 4);
     const actualDate = `${day}-${month}-${year}`;
     const actualTemp = weatherData.current_weather.temperature;
+    const getSunriseHour = weatherData.daily.sunrise[0];
+    const sunriseHour = String(getSunriseHour).slice(-5);
+    const getSunsetHour = weatherData.daily.sunset[0];
+    const sunsetHour = String(getSunsetHour).slice(-5);
 
     const tempCode = () => {
         if (weathercode === 0){
-            return (
-                <>
-                    <p>Despejado</p>
-                    <img src={Day} alt="Icono de sol" width={'130px'}/>
-                </>
-            );
+            if (actualHour >= sunriseHour && actualHour < sunsetHour){
+                return (
+                    <>
+                        <p>Despejado</p>
+                        <img src={Day} alt="Icono de sol" width={'130px'}/>
+                    </>
+                );
+            } else { 
+                return (
+                    <>
+                        <p>Despejado</p>
+                        <img src={ClearNight} alt="Icono de luna" width={'130px'}/>
+                    </>
+                );
+            }
         } else if (weathercode === 1){
-            return (
-                <>
-                    <p>Mayormente despejado</p>
-                    <img src={Day} alt="Icono de sol" width={'130px'} />
-                </>
-            );
+            if (actualHour >= sunriseHour && actualHour < sunsetHour){
+                return (
+                    <>
+                        <p>Mayormente despejado</p>
+                        <img src={Day} alt="Icono de sol" width={'130px'} />
+                    </>
+                );
+            } else {
+                return (
+                    <>
+                        <p>Mayormente despejado</p>
+                        <img src={ClearNight} alt="Icono de luna" width={'130px'} />
+                    </>
+                );
+            }
         } else if (weathercode === 2){
-            return (
-                <>
-                    <p>Parcialmente nublado</p>
-                    <img src={PartlyCloudy} alt="Icono de sol parcialmente nublado" width={'130px'}/>
-                </>
-            );
+            if (actualHour >= sunriseHour && actualHour < sunsetHour){
+                return (
+                    <>
+                        <p>Parcialmente nublado</p>
+                        <img src={PartlyCloudy} alt="Icono de sol parcialmente nublado" width={'130px'}/>
+                    </>
+                );
+            } else {
+                return (
+                    <>
+                        <p>Parcialmente nublado</p>
+                        <img src={PartlyCloudyNight} alt="Icono de luna parcialmente nublada" width={'130px'}/>
+                    </>
+                );
+            }
         } else if (weathercode === 3){
             return (
                 <>
