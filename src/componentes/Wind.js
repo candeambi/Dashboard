@@ -23,11 +23,12 @@ const Info = styled.div`
 font-weight: bold;
 `;
 
-function Wind () {
+function Wind ({weatherData}) {
 
     /* Declaro constantes del json*/
-    const windSpeedValue = Data.daily.windspeed_10m_max;
-    const windSpeedUnit = Data.daily_units.windspeed_10m_max;
+    const getWindSpeedValue = weatherData.daily.windspeed_10m_max;
+    const windSpeedValue = Math.max(...getWindSpeedValue);
+    const windSpeedUnit = weatherData.daily_units.windspeed_10m_max;
 
     return (
         <Card>
