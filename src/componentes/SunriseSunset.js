@@ -29,11 +29,13 @@ const Info = styled.div`
 font-weight: bold;
 `;
 
-function SunriseSunset () {
+function SunriseSunset ({weatherData}) {
 
     /*Datos del JSON*/
-    const sunriseHour = String(Data.daily.sunrise).slice(-5);
-    const sunsetHour = String(Data.daily.sunset).slice(-5);
+    const getSunriseHour = weatherData.daily.sunrise[0];
+    const sunriseHour = String(getSunriseHour).slice(-5);
+    const getSunsetHour = weatherData.daily.sunset[0];
+    const sunsetHour = String(getSunsetHour).slice(-5);
 
     return (
         <Card>

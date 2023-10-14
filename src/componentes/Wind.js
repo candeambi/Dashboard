@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
 import WindIcon from "../icons/wind.svg";
-import Data from "./Data.json";
 
 /* Estilos*/
 const Card = styled.div`
