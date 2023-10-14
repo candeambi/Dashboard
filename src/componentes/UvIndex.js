@@ -24,10 +24,11 @@ font-weight: bold;
 text-align: center;
 `;
 
-function UvIndex (){
+function UvIndex ({weatherData}){
 
     /* Declaro constantes del json*/
-    const uvIndexValue = Data.daily.uv_index_max;
+    const getUvIndexValue = weatherData.daily.uv_index_max;
+    const uvIndexValue = Math.max(...getUvIndexValue);
 
     return (
         <Card>

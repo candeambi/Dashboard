@@ -63,15 +63,15 @@ function DashboardWeather({weatherData}) {
       </Temperature>
       <Information>
         <Graphic>
-        <Hours />
+          <Hours weatherData={weatherData} />
         </Graphic>
         <DetailsContainer>
-          <UvIndex />
-          <Wind />
-          <SunriseSunset />
-          <Humidity />
-          <Visibility />
-          <AirQuality />
+          <UvIndex weatherData={weatherData} />
+          <Wind weatherData={weatherData} />
+          <SunriseSunset weatherData={weatherData} />
+          <Humidity weatherData={weatherData} />
+          <Visibility weatherData={weatherData} />
+          <AirQuality weatherData={weatherData} />
         </DetailsContainer>
         
       </Information>
