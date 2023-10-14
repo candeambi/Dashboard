@@ -14,6 +14,7 @@ useEffect (() => {
   ).then(data => {
     setWeatherData(data);
     setLoading(false);
+    console.log('Datos cargados:', data);
   }).catch(ex => {
     console.error(ex);
   })

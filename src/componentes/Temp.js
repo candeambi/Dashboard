@@ -39,17 +39,23 @@ const Min = styled.div`
     text-align: center;
 `;
 
-function Temp (){
+const Date = styled.p`
+    font-size: small;
+`
+
+function Temp ({weatherData}){
 
     /* Declaro constantes del json*/
-    const tempUnit = Data.daily_units.temperature_2m_max;
-    const max = Data.daily.temperature_2m_max;
-    const min = Data.daily.temperature_2m_min;
-    const weathercode = Data.current_weather.weathercode;
-    const actualHour = String(Data.current_weather.time).slice(-5)
-    const day = String(Data.current_weather.time).slice(8, 10);
-    const month = String(Data.current_weather.time).slice(5, 7);
-    const year = String(Data.current_weather.time).slice(0, 4);
+    const tempUnit = weatherData.daily_units.temperature_2m_max;
+    const getMax = weatherData.daily.temperature_2m_max;
+    const max = Math.max(...getMax);
+    const getMin = weatherData.daily.temperature_2m_min;
+    const min = Math.min(...getMin);
+    const weathercode = weatherData.current_weather.weathercode;
+    const actualHour = String(weatherData.current_weather.time).slice(-5)
+    const day = String(weatherData.current_weather.time).slice(8, 10);
+    const month = String(weatherData.current_weather.time).slice(5, 7);
+    const year = String(weatherData.current_weather.time).slice(0, 4);
     const actualDate = `${day}-${month}-${year}`;
 
     const tempCode = () => {
@@ -57,7 +63,7 @@ function Temp (){
             return (
                 <>
                     <p>Despejado</p>
-                    <img src={Day} alt="Icono de sol" />
+                    <img src={Day} alt="Icono de sol" width={'150px'}/>
                 </>
             );
         } else if (weathercode === 1){
@@ -263,7 +269,8 @@ function Temp (){
             <ActualTemp>
                 <h1>Córdoba, Argentina</h1>
                 {weatherInfo} {/* Renderiza el resultado de la función tempCode */}
-                <p>{actualDate}, {actualHour}</p>
+                <Date>{actualDate}</Date>
+                <Date>Última actualización: {actualHour}</Date>
             </ActualTemp>
             <Max>
                 <p>Max</p>

@@ -52,12 +52,14 @@ const DetailsContainer = styled.div`
 
 
 
-function DashboardWeather() {
+function DashboardWeather({weatherData}) {
+
+  console.log('Datos en DashboardWeather:', weatherData);
 
   return (
     <DashboardContainer>
       <Temperature>
-        <Temp />
+        <Temp weatherData={weatherData} />
       </Temperature>
       <Information>
         <Graphic>
