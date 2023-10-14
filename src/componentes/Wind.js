@@ -15,7 +15,8 @@ const Card = styled.div`
     color: #000;
     margin: 5px;
     padding: 5px;
-        height: 200px;
+    height: 200px;
+    text-align: center;
 `;
 
 const Info = styled.div`
