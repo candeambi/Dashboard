@@ -4,12 +4,27 @@ import DashboardWeather from './componentes/DashboardWeather';
 import styled from "styled-components";
 import Spinner from 'react-bootstrap/Spinner';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import DashboardTransport from './components_transport/DashboardTransport';
 
 
 /*Estilos*/
 const Loading = styled.div`
   font-family: monospace;
   text-align: center;
+`;
+
+const HalfScreen = styled.div`
+  width: 50%;
+  height: 100vh;
+  float: left;
+  overflow: hidden;
+`;
+
+const SecondHalfScreen = styled.div`
+width: 50%;
+height: 100vh;
+float: right;
+overflow: hidden;
 `;
 
 function App() {
@@ -54,8 +69,12 @@ useEffect (() => {
           {showSpinner && <Spinner animation="border" variant="dark" />} 
           {weatherLoading && <h1>Cargando...</h1>}
         </Loading>
-      <div>{!weatherLoading && weatherData && <DashboardWeather weatherData={weatherData} airQualityData={airQualityData} />}</div>
-      
+      <HalfScreen>
+        {!weatherLoading && weatherData && <DashboardWeather weatherData={weatherData} airQualityData={airQualityData} />}
+      </HalfScreen>
+      <SecondHalfScreen>
+        <DashboardTransport />
+      </SecondHalfScreen>
     </div>
 
   );
