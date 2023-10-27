@@ -66,7 +66,7 @@ useEffect (() => {
   const [transportData, setTransportData] = useState(null);
   const [transportLoading, setTransportLoading] = useState(true);
 
-  const apiUrl = "https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?route_id=1464&client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6";
+  const apiUrl = "https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?route_id=1468&client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6";
   const fetchdata = () => {
     setTransportLoading(false);
     fetch(apiUrl)
