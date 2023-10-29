@@ -36,6 +36,11 @@ function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
     "159C L (Roja) Correo Central": "839",
     "7A Toma Nueva": "1",
     "159D 1 hacia C Central": "1494",
+    "148J a Constitución": "1651",
+    "159E 2 hacia C Central": "1696",
+    "159B L (Roja) Correo Central": "831",
+    "148D H - V. del Plata": "315",
+    "148I a Constitución": "1649",
   };
   
 
@@ -59,6 +64,7 @@ function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
       </Marker>
     ));
   };
+  
 
   return (
     <ContainerMenu>
@@ -73,7 +79,7 @@ function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
       </Menu>
 
 
-    <MapContainer center={[-34.60376,  -58.38162]} zoom={10} scrollWheelZoom={false}>
+    <MapContainer center={[-34.60376,  -58.38162]} zoom={10} scrollWheelZoom={true}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
