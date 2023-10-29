@@ -54,8 +54,6 @@ const DetailsContainer = styled.div`
 
 function DashboardWeather({weatherData, airQualityData}) {
 
-  console.log('Datos en DashboardWeather:', weatherData);
-
   return (
     <DashboardContainer>
       <Temperature>

@@ -41,7 +41,6 @@ useEffect (() => {
     setWeatherData(data);
     setWeatherLoading(false);
     setShowSpinner(false);
-    console.log('Datos cargados:', data);
   }).catch(ex => {
     console.error(ex);
   })
@@ -56,7 +55,6 @@ useEffect (() => {
   ).then(data => {
     setAirQualityData(data);
     setWeatherLoading(false);
-    console.log('Datos del aire cargados:', data);
   }).catch(ex => {
     console.error(ex);
   })
@@ -65,9 +63,13 @@ useEffect (() => {
 /*Extraigo los datos de la api de transporte*/
   const [transportData, setTransportData] = useState(null);
   const [transportLoading, setTransportLoading] = useState(true);
+  const [selectedRoute, setSelectedRoute] = useState(null); // Estado para la línea seleccionada
 
-  const apiUrl = "https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?route_id=1468&client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6";
+  const apiUrl = `https://apitransporte.buenosaires.gob.ar/colectivos/vehiclePositionsSimple?route_id=${selectedRoute}&client_id=cb6b18c84b3b484d98018a791577af52&client_secret=3e3DB105Fbf642Bf88d5eeB8783EE1E6`;
+
   const fetchdata = () => {
+    console.log(selectedRoute); // Verifica el valor de selectedRoute
+    console.log(apiUrl); // Verifica la URL de la API
     setTransportLoading(false);
     fetch(apiUrl)
       .then((resp) => resp.json())
@@ -87,7 +89,7 @@ useEffect (() => {
       fetchdata()
     }, 31000);
     return () => clearInterval(interval);
-  }, []);
+  }, [selectedRoute]);
 
   return (
     <div>
@@ -103,7 +105,7 @@ useEffect (() => {
           {showSpinner && <Spinner animation="border" variant="dark" />} 
           {transportLoading && <h1>Cargando...</h1>}
         </Loading>
-      {!transportLoading && transportData && <DashboardTransport transportData={transportData} />}
+      {!transportLoading && transportData && <DashboardTransport transportData={transportData} selectedRoute={selectedRoute} setSelectedRoute={setSelectedRoute}/>}
       </SecondHalfScreen>
     </div>
 

@@ -1,27 +1,42 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import DataTransport from './DataTransport.json';
 
-function DashboardTransport () {
+function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
 
-  const [selectedRoute, setSelectedRoute] = useState(null); // Estado para la línea seleccionada
-
+  const routeShortNameToRouteId = {
+    "321A a Libertad": "1466",
+    "253A a Libertad": "1465",
+    "153A a Bº Nuevo": "1468",
+    "7A a Barrio Policial": "2",
+    "159A a Pza Constitución - IDA": "1702",
+    "7B a Bº Samore": "1608",
+    "148H F x Monteverde": "1646",
+    "148H a Constitución": "1647",
+    "159E 2 hacia Berazategui": "1695",
+    "152A a Olivos": "99",
+    "148B a Constitución": "1635",
+    "300B1 a Morón": "993",
+    "159C L (Roja) Correo Central": "839",
+    "7A Toma Nueva": "1",
+    "159D 1 hacia C Central": "1494",
+  };
+  
 
     // Función para crear marcadores a partir de los datos del JSON
   const createMarkers = (data) => {
     let filteredData = data;
     if (selectedRoute) {
-      filteredData = data.filter((DataTransport) => DataTransport.route_id === selectedRoute);
+      filteredData = data.filter((transportData) => transportData.route_id === selectedRoute);
     }
-    return filteredData.map((DataTransport) => (
+    return filteredData.map((transportData) => (
       <Marker
-        key={DataTransport.id}
-        position={[DataTransport.latitude, DataTransport.longitude]}
+        key={transportData.id}
+        position={[transportData.latitude, transportData.longitude]}
       >
         <Popup>
-          <strong>Colectivo:</strong> {DataTransport.route_short_name}<br />
-          <strong>Velocidad:</strong> {DataTransport.speed} km/h<br />
-          <strong>Destino:</strong> {DataTransport.trip_headsign}
+          <strong>Colectivo:</strong> {transportData.route_short_name}<br />
+          <strong>Velocidad:</strong> {transportData.speed} km/h<br />
+          <strong>Destino:</strong> {transportData.trip_headsign}
         </Popup>
       </Marker>
     ));
@@ -29,21 +44,22 @@ function DashboardTransport () {
 
   return (
     <div>
-      <select value={selectedRoute} onChange={(e) => setSelectedRoute(e.target.value || null)}>
+      <select value={selectedRoute} onChange={(e) => setSelectedRoute(e.target.value)}>
         <option value="">Selecciona una línea de colectivo</option>
-        {DataTransport.map((DataTransport) => (
-          <option key={DataTransport.route_id} value={DataTransport.route_id}>
-            {DataTransport.route_short_name}
+        {Object.keys(routeShortNameToRouteId).map((routeShortName) => (
+          <option key={routeShortNameToRouteId[routeShortName]} value={routeShortNameToRouteId[routeShortName]}>
+            {routeShortName}
           </option>
         ))}
       </select>
+
 
     <MapContainer center={[-34.60376,  -58.38162]} zoom={10} scrollWheelZoom={false}>
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-       {selectedRoute && createMarkers(DataTransport)}
+       {selectedRoute && createMarkers(transportData)}
     </MapContainer>
     </div>
   );
