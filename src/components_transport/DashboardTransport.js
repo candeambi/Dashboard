@@ -1,5 +1,22 @@
 import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import styled from "styled-components";
+
+/* Estilos */
+const ContainerMenu = styled.div`
+  background: #27bb65;
+`
+
+const Title = styled.h3`
+  color: white;
+  padding: 5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+`
+
+const Menu = styled.select`
+  margin: 5px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+`
 
 function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
 
@@ -34,7 +51,8 @@ function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
         position={[transportData.latitude, transportData.longitude]}
       >
         <Popup>
-          <strong>Colectivo:</strong> {transportData.route_short_name}<br />
+          <strong>Linea:</strong> {transportData.route_short_name}<br />
+          <strong>Empresa:</strong> {transportData.agency_name}<br />
           <strong>Velocidad:</strong> {transportData.speed} km/h<br />
           <strong>Destino:</strong> {transportData.trip_headsign}
         </Popup>
@@ -43,15 +61,16 @@ function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
   };
 
   return (
-    <div>
-      <select value={selectedRoute} onChange={(e) => setSelectedRoute(e.target.value)}>
+    <ContainerMenu>
+      <Title>Colectivos de la Ciudad de Buenos Aires</Title>
+      <Menu value={selectedRoute} onChange={(e) => setSelectedRoute(e.target.value)}>
         <option value="">Selecciona una línea de colectivo</option>
         {Object.keys(routeShortNameToRouteId).map((routeShortName) => (
           <option key={routeShortNameToRouteId[routeShortName]} value={routeShortNameToRouteId[routeShortName]}>
             {routeShortName}
           </option>
         ))}
-      </select>
+      </Menu>
 
 
     <MapContainer center={[-34.60376,  -58.38162]} zoom={10} scrollWheelZoom={false}>
@@ -61,7 +80,7 @@ function DashboardTransport ({transportData, selectedRoute, setSelectedRoute}) {
       />
        {selectedRoute && createMarkers(transportData)}
     </MapContainer>
-    </div>
+    </ContainerMenu>
   );
 }
 
